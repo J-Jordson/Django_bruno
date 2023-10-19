@@ -17,9 +17,9 @@ Including another URLconf
 from unicodedata import name
 from django.contrib import admin
 from django.urls import path
-from core.views import home, contato, dados_url
+from core.views import area_cadastro, home, contato, dados_url
 from core.views import cursos, curso_cadastro, curso_editar, curso_remover
-from core.views import areas, cadastrar_area
+from core.views import areas, area_cadastro
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,5 +33,5 @@ urlpatterns = [
     path('curso_remover/<int:id>/', curso_remover, name='curso_remover'),
 
     path('areas/', areas, name='areas'),
-    path('area_cadastro/', cadastrar_area, name='area_cadastro'),
+    path('area_cadastro/', area_cadastro, name='area_cadastro'),
 ]

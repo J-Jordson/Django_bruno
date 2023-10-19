@@ -9,11 +9,14 @@
 <body>
     <h1>Areas</h1>
 
+    <p><a href="{% url 'area_cadastro' %}">CADASTRAR</a></p>
+
     <p>Lista de Areas</p>
-    {% for areas in lista_areas %}
-    <p>Titulo: {{area.nome}}</p>
+    {% for area in lista_areas %}
+    <p>Nome: {{area.nome}}</p>
     {% empty %}
-    <p>Não existem areas cadastradas</p>
+    <p>Nenhuma área cadastrada!</p>
     {% endfor %}
+
 </body>
 </html>

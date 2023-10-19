@@ -3,10 +3,14 @@ from django.db import models
 # Create your models here.
 
 class Area(models.Model):
-    nome = models.CharField('Área', max_length=20)
+    nome = models.CharField('Nome', max_length=20)
+    def __str__(self):
+        return self.nome
 
 class Publico(models.Model):
-    nome= models.CharField('Público', max_length=20)
+    nome= models.CharField('Nome', max_length=20)
+    def __str__(self):
+        return self.nome
 
 class Curso(models.Model):
     titulo = models.CharField('Titulo', max_length=100)

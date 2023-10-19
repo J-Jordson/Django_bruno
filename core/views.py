@@ -69,9 +69,14 @@ def areas (request):
     }
     return render(request, 'areas.html', contexto)
 
-def cadastrar_area(request):
+def area_cadastro(request):
     form = AreaForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('areas')
+        
     contexto = {
-        'form_area': form
+        'form': form
     }
     return render(request, 'area_cadastro.html', contexto)
