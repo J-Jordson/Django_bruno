@@ -5,4 +5,13 @@
     <h1>Bom dia</h1>
     <p><a href="{% url 'contato' %}">Acessar Contato</a></p>
 
+    {% if not user.is_authenticated %}
+    <p><a href="{% url 'login' %}">Login</a></p>
+    <p>Cadastro</p>
+    {% else %}
+
+    <p><a href="{% url 'perfil' %}">Perfil</a></p>
+    <p><a href="{% url 'logout' %}">Sair</a></p>
+    {% endif %}
+
 {% endblock %}

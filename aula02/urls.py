@@ -20,8 +20,15 @@ from django.urls import path
 from core.views import area_cadastro, home, contato, dados_url
 from core.views import cursos, curso_cadastro, curso_editar, curso_remover
 from core.views import areas, area_cadastro
+from core.views import perfil
+from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
+    path('login/', LoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
+
+    path('perfil/', perfil, name='perfil'),
+
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('contato/', contato, name='contato'),

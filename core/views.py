@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
-from .models import Curso, Area
+from .models import Curso, Area, Usuario
 from .forms import CursoForm, AreaForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login
+
 
 # Create your views here.
 
@@ -80,3 +83,22 @@ def area_cadastro(request):
         'form': form
     }
     return render(request, 'area_cadastro.html', contexto)
+
+# ======== LOGIN ============
+
+@login_required
+def perfil(request):
+    return render(request, 'perfil.html')
+
+def autenticar(request):
+    if request.POST:
+        username = request.POST['usuario']
+        senha = request.POST['senha']
+        user = authenticate(request, username=usuario, password=senha)
+        if user is not Nome:
+            login(request, user)
+            redirect('perfil')
+        else:
+            return redirect('login')
+    else:
+        return render(request, 'registration\login.html')
